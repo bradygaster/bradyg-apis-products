@@ -1,0 +1,97 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "products",
+        "version": "1.0"
+    },
+    "basePath": "/v1",
+    "schemes": [
+        "https"
+    ],
+    "securityDefinitions": {
+        "apiKeyHeader": {
+            "type": "apiKey",
+            "name": "Ocp-Apim-Subscription-Key",
+            "in": "header"
+        },
+        "apiKeyQuery": {
+            "type": "apiKey",
+            "name": "subscription-key",
+            "in": "query"
+        }
+    },
+    "security": [
+        {
+            "apiKeyHeader": []
+        },
+        {
+            "apiKeyQuery": []
+        }
+    ],
+    "paths": {
+        "/products": {
+            "post": {
+                "description": "Create a new product.",
+                "operationId": "add-product",
+                "summary": "Add Product",
+                "parameters": [
+                    {
+                        "name": "product",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/product"
+                        }
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/product"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "id": 0,
+                                "name": "string",
+                                "inventoryCount": 0,
+                                "costPerUnit": 0.4510864935400465
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "product": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "inventoryCount": {
+                    "type": "integer"
+                },
+                "costPerUnit": {
+                    "type": "number"
+                }
+            },
+            "example": {
+                "id": 0,
+                "name": "string",
+                "inventoryCount": 0,
+                "costPerUnit": 19.99
+            }
+        }
+    },
+    "tags": []
+}

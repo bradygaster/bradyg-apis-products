@@ -1,0 +1,87 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "products"
+  },
+  "basePath" : "/v1",
+  "tags" : [ ],
+  "schemes" : [ "https" ],
+  "security" : [ {
+    "apiKeyHeader" : [ ]
+  }, {
+    "apiKeyQuery" : [ ]
+  } ],
+  "paths" : {
+    "/products" : {
+      "post" : {
+        "summary" : "Add Product",
+        "description" : "Create a new product.",
+        "operationId" : "add-product",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "product",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/product"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "",
+            "examples" : {
+              "application/json" : {
+                "id" : 0,
+                "name" : "string",
+                "inventoryCount" : 0,
+                "costPerUnit" : 0.4510864935400465
+              }
+            },
+            "schema" : {
+              "$ref" : "#/definitions/product"
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "apiKeyHeader" : {
+      "type" : "apiKey",
+      "name" : "Ocp-Apim-Subscription-Key",
+      "in" : "header"
+    },
+    "apiKeyQuery" : {
+      "type" : "apiKey",
+      "name" : "subscription-key",
+      "in" : "query"
+    }
+  },
+  "definitions" : {
+    "product" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "inventoryCount" : {
+          "type" : "integer"
+        },
+        "costPerUnit" : {
+          "type" : "number"
+        }
+      },
+      "example" : {
+        "id" : 0,
+        "name" : "string",
+        "inventoryCount" : 0,
+        "costPerUnit" : 19.99
+      }
+    }
+  }
+}

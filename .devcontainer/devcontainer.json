@@ -1,0 +1,14 @@
+{
+    "extensions": [
+      "ms-vscode.csharp",
+      "ms-azuretools.vscode-docker",
+      "redhat.vscode-yaml",
+      "ms-vscode.azurecli",
+      "ms-vscode.azure-account",
+      "kangping.protobuf",
+      "ms-dotnettools.csharp",
+      "ms-azuretools.vscode-azureappservice",
+      "ms-azuretools.vscode-azurefunctions"
+    ],
+    "postCreateCommand": "sudo apt-get install jq"
+}
